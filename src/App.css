@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@font-face {
+  font-family:'Satoshi-Medium' ;
+  src: url('./fonts/Satoshi/Satoshi-Medium.woff') format('woff2'),
+  url('./fonts/Satoshi/Satoshi-Medium.woff2') format('woff')
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  @apply font-[inter]
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App{
+  @apply py-14 px-6 mx-auto max-w-[1200px] 
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App h1{
+  @apply text-[40px] font-[Satoshi-Medium]
 }
-
-.App-link {
-  color: #61dafb;
+.container_T {
+  @apply flex relative z-10;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container_T p {
+  @apply cursor-pointer flex border-solid px-4 py-3 border-containerType  border-solid rounded gap-x-2 items-center  w-fit text-base border;
+}
+.container_T .options {
+  @apply absolute p-1 text-sm rounded flex flex-col cursor-pointer  shadow w-[100px] bg-white
+}
+.container_T .options span {
+  @apply p-2 text-sm;
+}
+.size {
+  @apply bottom-size;
+}
+.type {
+  @apply bottom-type;
+}
+.active{
+  @apply bg-green-100 text-active
+}
+.filter{
+  @apply flex max-w-[520px] items-center gap-x-3 overflow-auto lg:max-w-[750px]
+}
+.filter::-webkit-scrollbar{
+  @apply h-[1px] w-[5px] rounded
+}
+.filter::-webkit-scrollbar-thumb{
+  @apply bg-[#6b7280] 
+}
+.filter span{
+  @apply py-3 px-4 border-[#9CA3AF] border-solid border-[1px] rounded gap-x-2 min-w-fit cursor-pointer
+}
+.filtered{
+  @apply text-white bg-[#1F2937]
 }
