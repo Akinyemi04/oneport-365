@@ -56,3 +56,39 @@
 .filtered{
   @apply text-white bg-[#1F2937]
 }
+.loader{
+  @apply mx-auto my-4 w-fit 
+}
+.loader p{
+  @apply border-solid border-[3px] border-[#f3f3f3] rounded-full w-[35px] h-[35px] animate-spin border-t-[3px]  border-t-[#22c55e]
+}
+.parent_Data{
+  @apply pt-8 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+}
+.parent_Data .data{
+  @apply p-5 border-[#e5e7eb] border-solid border-[2px] rounded-[10px] cursor-pointer hover:border-[#139c33]
+}
+.parent_Data .data .header{
+  @apply flex items-center justify-between
+}
+.parent_Data .data .header .main{
+  @apply font-medium text-sm text-black
+}
+.parent_Data .data .header div{
+  @apply  font-normal text-sm gap-x-2 flex text-[#1f2937] items-center
+}
+.parent_Data .data .header div span{
+  @apply w-[13px] h-[3px] bg-gray-500 rounded-md
+}
+.parent_Data .data .price{
+  @apply text-lg font-normal text-[#004800] mt-3 mb-6
+}
+.parent_Data .data .footer{
+  @apply border-solid border-t border-t-[#e5e7eb] text-sm pt-6 grid-cols-3 grid
+}
+.parent_Data .data .footer .details{
+  @apply font-light mb-[0.375rem] text-[#6b7280]
+}
+button{
+  @apply py-3 px-12 border-[#374151] border-solid border-[1px] rounded mx-auto cursor-pointer
+}

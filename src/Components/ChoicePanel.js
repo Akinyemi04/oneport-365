@@ -4,22 +4,26 @@ import { rate } from "../store";
 
 const ChoicePanel = ({ data, classx }) => {
   const dispatch = useDispatch();
-  const activeContainerSize = useSelector((val) => {
-    return val.data.containerSize;
-  });
-  const activeContainerType = useSelector((val) => {
-    return val.data.containerType;
-  });
+  const { containerSize, containerType } = useSelector((val) => val.data);
 
+  function update(e) {
+    const text = e.target.innerHTML;
 
-  function update(e){
-    const text = e.target.innerHTML
-    console.log(text)
-    if(classx === 'type'){
-        dispatch(rate.updateContainerType(e.target.textContent))
-    }
-    else{
-        dispatch(rate.updateContainerSize(`${text}`))
+    if (classx === "type") {
+      dispatch(rate.updateContainerType(e.target.textContent));
+      dispatch(rate.displayType(false));
+      dispatch(rate.load(true));
+      dispatch(rate.updateDisplayData([]));
+      setTimeout(() => {
+        dispatch(rate.updateContainerType(e.target.textContent));
+      }, [2000]);
+    } else {
+      dispatch(rate.displaySize(false));
+      dispatch(rate.load(true));
+      dispatch(rate.updateDisplayData([]));
+      setTimeout(() => {
+        dispatch(rate.updateContainerSize(`${text}`));
+      }, [2000]);
     }
   }
   return (
@@ -27,10 +31,9 @@ const ChoicePanel = ({ data, classx }) => {
       {data.map((val, index) => {
         return (
           <span
-          onClick={update}
+            onClick={update}
             className={`${
-              val === activeContainerSize ||
-              val.toLowerCase() === activeContainerType
+              val === containerSize || val.toLowerCase() === containerType
                 ? "active"
                 : ""
             }`}

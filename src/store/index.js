@@ -11,11 +11,21 @@ const rateSlice = createSlice({
         containerType:'dry',
         displaySizeOption:false,
         displayTypeOption:false,
-        filterArray:['COSCO','PIL','ZIM','MAERSK','CMA CGM','OOCL','MSC','ONE','ESL','EVERGREEN'],
-        filter:'COSCO'
-
+        filterArray:['COSCO','CMA CGM','MAERSK','PIL','ZIM','OOCL','MSC','ONE','ESL','EVERGREEN'],
+        filter:'COSCO',
+        filteredData:[],
+        displayData:[]
+        ,
+        loading:true, // to condition display of controlhub 
+        
     },
     reducers:{
+        updateDisplayData(state,action){
+            return{
+                ...state,
+                displayData:action.payload
+            }
+        },
         updateData(state,action){
             return{
                 ...state,
@@ -51,6 +61,19 @@ const rateSlice = createSlice({
             return{
                 ...state,
                 filter:action.payload
+            }
+        },
+        load(state,action){
+            return{
+                ...state,
+                loading:action.payload
+            }
+        },
+        filtered(state,action){
+            
+            return{
+                ...state,
+                filteredData:action.payload
             }
         }
     }

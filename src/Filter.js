@@ -1,8 +1,8 @@
 import React from "react";
-import {  useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { rate } from "./store";
 const Filter = ({ data }) => {
-    const dispatch= useDispatch()
+  const dispatch = useDispatch();
   const filter = useSelector((val) => {
     return val.data.filter;
   });
