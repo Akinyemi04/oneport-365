@@ -37,7 +37,6 @@ const ApiDataRender = () => {
 
   useEffect(() => {
     if(data){
-      // const data = JSON.parse(localStorage.getItem("onport"));
       dispatch(rate.updateData(data.data.rates));
     }
 
