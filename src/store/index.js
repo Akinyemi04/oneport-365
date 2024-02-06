@@ -39,7 +39,6 @@ const rateSlice = createSlice({
             }
         },
         updateContainerType(state,action){
-            console.log(typeof(action.payload))
             return{
                 ...state,
                 containerType:action.payload.toLowerCase()
