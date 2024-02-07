@@ -49,7 +49,8 @@ const ControlHub = () => {
 
 
   return (
-    <div>
+    <div className="relative">
+      
       <h1 className="text-4xl font-medium sato">Special Rates</h1>
       {!loading ? (
         <div className="flex flex-col mt-10 relative z-20 gap-x-3 gap-y-5 pb-8 md:flex-row md:justify-between border-[#f3f4f6] border-solid border-b-[1px]">

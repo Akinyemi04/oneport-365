@@ -17,9 +17,6 @@ const ApiDataRender = () => {
     filteredData,
   } = useSelector((state) => state.data);
 
-  // const loading = false;
-  // const error = false;
-
   const { data, loading, error } = useApiData(
     containerSize,
     containerType

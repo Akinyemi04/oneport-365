@@ -57,7 +57,7 @@
   @apply text-white bg-[#1F2937]
 }
 .loader{
-  @apply mx-auto my-4 w-fit 
+  @apply mx-auto my-5 w-fit  
 }
 .loader p{
   @apply border-solid border-[3px] border-[#f3f3f3] rounded-full w-[35px] h-[35px] animate-spin border-t-[3px]  border-t-[#22c55e]

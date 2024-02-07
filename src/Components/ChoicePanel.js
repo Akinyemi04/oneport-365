@@ -6,24 +6,42 @@ const ChoicePanel = ({ data, classx }) => {
   const dispatch = useDispatch();
   const { containerSize, containerType } = useSelector((val) => val.data);
 
+
   function update(e) {
     const text = e.target.innerHTML;
 
+    const dispatchActions =() =>{
+      dispatch(rate.load(true));
+      dispatch(rate.updateData([]));
+      dispatch(rate.updateFilter('COSCO'))
+      dispatch(rate.updateDisplayData([]));
+    }
+    
     if (classx === "type") {
-      dispatch(rate.updateContainerType(e.target.textContent));
-      dispatch(rate.displayType(false));
-      dispatch(rate.load(true));
-      dispatch(rate.updateDisplayData([]));
-      setTimeout(() => {
-        dispatch(rate.updateContainerType(e.target.textContent));
-      }, [2000]);
-    } else {
-      dispatch(rate.displaySize(false));
-      dispatch(rate.load(true));
-      dispatch(rate.updateDisplayData([]));
-      setTimeout(() => {
-        dispatch(rate.updateContainerSize(`${text}`));
-      }, [2000]);
+      if(containerType === e.target.textContent.toLowerCase() ){
+        dispatch(rate.displayType(false));
+      }
+      else{
+        dispatch(rate.displayType(false));
+        dispatchActions()
+        setTimeout(() => {
+          dispatch(rate.updateContainerType(e.target.textContent));
+        }, [2000]);
+      }
+  
+    } 
+    else {
+      if(containerSize === text){
+        dispatch(rate.displaySize(false));
+      }
+      else{
+        dispatch(rate.displaySize(false));
+          dispatchActions()
+        setTimeout(() => {
+          dispatch(rate.updateContainerSize(`${text}`));
+        }, [2000]);
+      }
+
     }
   }
   return (

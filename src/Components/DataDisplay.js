@@ -29,7 +29,7 @@ const DataDisplay = ({ data }) => {
         </div>
         <div>
           <p className="details">Free Days</p>
-          <p>{data.demurrage_days + data.detention_days}</p>
+          <p>{data.demurrage_days + data.detention_days} days</p>
         </div>
       </div>
     </div>
